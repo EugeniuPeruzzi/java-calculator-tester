@@ -3,7 +3,8 @@ package org.java;
 public class Ticket {
 	private int km;
 	private int age;
-	
+    private static final double PRICE_PER_KM = 0.21;
+
 	public Ticket(int km, int age) throws Exception {
 		setKm(km);
 		setAge(age);
@@ -30,6 +31,19 @@ public class Ticket {
 		}
 		this.age = age;
 	}
+	
+    public double calculatePrice() {
+        double standardPrice = getKm() * PRICE_PER_KM;
+        double discount = 0;
+
+        if (getAge() < 18) {
+            discount = standardPrice * 0.20;
+        } else if (getAge() > 65) {
+            discount = standardPrice * 0.40;
+        }
+
+        return standardPrice - discount;
+    }
 	
 	
 	
