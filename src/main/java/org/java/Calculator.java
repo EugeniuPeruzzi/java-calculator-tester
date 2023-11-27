@@ -4,7 +4,7 @@ public class Calculator {
 	private float num1;
 	private float num2;
 	
-	public Calculator(float num1, float num2){
+	public Calculator(float num1, float num2) throws Exception {
 		setNum1(num1);
 		setNum2(num2);
 	}
