@@ -17,7 +17,7 @@ public class TicketTest {
 	@Test
 	public void testKmThrowsException() {
 	    assertThrows(Exception.class, () -> {
-	        new Ticket(-1, -1);
+	        new Ticket(-1, 10);
 	    });
 	}
 	
@@ -27,6 +27,21 @@ public class TicketTest {
 	        new Ticket(100, 10);
 	    });
 	}
+	
+	@Test
+	public void testAgeThrowsException() {
+	    assertThrows(Exception.class, () -> {
+	        new Ticket(100, -1);
+	    });
+	}
+	
+	@Test
+	public void testAgeNotThrowsException() {
+	    assertDoesNotThrow(() -> {
+	        new Ticket(100, 10);
+	    });
+	}
+	
 	
 	@Test
 	public void priceTicketTest() throws Exception {
